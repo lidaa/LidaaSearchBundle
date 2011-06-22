@@ -18,12 +18,13 @@ You can get it here http://github.com/zendframework/zf2
         );
     }
 
-**Add the Lidaa namespace to your autoloader:**
+**Add the 'Lidaa' namespace to your autoloader:**
 
     // app/autoload.php
     $loader->registerNamespaces(array(
-        ...
-        'Lidaa' => __DIR__.'/../src',
+        //...
+        'Lidaa' => __DIR__.'/../vendor/bundles',
+        //...
     ));
 
 
