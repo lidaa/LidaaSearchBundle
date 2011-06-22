@@ -81,7 +81,7 @@ Example
 **To retrieve a query:**
 
 	$query = 'zend';
-	$results = $search->find($query);
+	$results = $index->find($query);
 	if(empty($results)){
 		echo 'empty';
 	}else{		
