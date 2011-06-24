@@ -12,9 +12,6 @@ class LucenSearch
     private $document;
     private $analyzer;    
 
-	/**
-	* 
-	*/
 	public function __construct($analyzer, $index_path, $doc_type)
 	{
         if (file_exists($index_path)) {
@@ -29,7 +26,7 @@ class LucenSearch
 	}
 	
 	/**
-	* 
+	* @return \Zend\Search\Lucene\Index
 	*/
 	public function getIndex()
 	{
@@ -37,7 +34,7 @@ class LucenSearch
 	}
 	
 	/**
-	* 
+	* @return \Zend\Search\Lucene\Document
 	*/
 	public function getDocument($doc_type = null)
 	{
@@ -45,7 +42,7 @@ class LucenSearch
 	}
 	
 	/**
-	* 
+	*
 	*/
 	public function getAnalyzer()
 	{
@@ -53,7 +50,7 @@ class LucenSearch
 	}
 	
 	/**
-	* 
+	* @return \Zend\Search\Lucene\Document\Field
 	*/
 	public function getField($type, array $options)
 	{
