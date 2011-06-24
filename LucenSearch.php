@@ -52,4 +52,11 @@ class LucenSearch
 		return $this->analyzer;
 	}
 	
+	/**
+	* 
+	*/
+	public function getField($type, array $options)
+	{
+		return call_user_func_array("\Zend\Search\Lucene\Document\Field::$type", $options);
+	}
 }
