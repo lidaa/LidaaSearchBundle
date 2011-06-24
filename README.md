@@ -68,12 +68,13 @@ Example
 	foreach($articlesData as $articleData)
 	{  
 		$doc = $lucene_search->getDocument();  
-		$doc->addField(\Zend\Search\Lucene\Document\Field::Keyword('url',  $articleData["url"]));  
-		$doc->addField(\Zend\Search\Lucene\Document\Field::UnIndexed('articleId',  $articleData["articleId"]));  
-		$doc->addField(\Zend\Search\Lucene\Document\Field::UnIndexed('postedDateTime',  $articleData["postedDateTime"]));  
-		$doc->addField(\Zend\Search\Lucene\Document\Field::Text('title',  $articleData["title"]));  
-		$doc->addField(\Zend\Search\Lucene\Document\Field::UnStored('contents',  $articleData["contents"]));  
-		$doc->addField(\Zend\Search\Lucene\Document\Field::Text('category',  $articleData["category"])); 
+
+		$doc->addField($lucene_search->getField('Keyword', array('url',  $articleData["url"])));
+		$doc->addField($lucene_search->getField('UnIndexed', array('articleId',  $articleData["articleId"])));
+		$doc->addField($lucene_search->getField('UnIndexed', array('postedDateTime',  $articleData["postedDateTime"])));
+		$doc->addField($lucene_search->getField('Text', array('title',  $articleData["title"])));
+		$doc->addField($lucene_search->getField('UnStored', array('contents',  $articleData["contents"])));
+		$doc->addField($lucene_search->getField('Text', array('category',  $articleData["category"]))); 
 		$index->addDocument($doc);
 	}
 	$index->commit();
@@ -94,6 +95,5 @@ See the Zend documentation for more information.
 
 TODO
 =======
-	-Incorporate the possibility of changing the type of document
-	-Activate the "analyzer"
-	-Take the test
+	- Incorporate the possibility of changing the type of document
+	- Activate the "analyzer"
